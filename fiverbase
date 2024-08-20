@@ -1,0 +1,8 @@
+// Firestore Rules
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /messages/{messageId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
